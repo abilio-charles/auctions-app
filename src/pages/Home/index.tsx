@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import { useNavigate } from 'react-router-dom';
 // Importe outros componentes ou serviços conforme necessário
 /*
 type Auction = {
@@ -34,6 +35,7 @@ const fakeAuctions = [
 
 const Home = () => {
   const [auctions, setAuctions] = useState(fakeAuctions); //useState<Auction[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchAuctions = async () => {
@@ -43,7 +45,7 @@ const Home = () => {
   }, []);
 
   const handleEnterAuction = (auctionId: string) => {
-    // Implemente a navegação para a página de leilão
+    navigate(`/auction/${auctionId}`);
   };
 
   return (

@@ -1,12 +1,19 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home'; // Importação do componente Home
+import Home from './pages/Home';
+import AuctionPage from './pages/Auction'; // Ajuste o caminho se necessário
 
 function App() {
   return (
-    <div className="App">
-      <Home /> {/* Inclusão do componente Home */}
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/auction/:id" element={<AuctionPage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
